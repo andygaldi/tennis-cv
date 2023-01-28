@@ -2,7 +2,7 @@
 name = "tennis-cv"
 version = "0.1.0"
 description = ""
-authors = ["Andy Galdi <aandy.galdi@gmail.com>"]
+authors = ["Andy Galdi <andy.galdi@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.10"

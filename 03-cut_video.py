@@ -22,6 +22,6 @@ def print_video_shots(results: vi.VideoAnnotationResults):
 
 
 if __name__ == "__main__":
-    video_uri = "gs://slow-motion-videos/NDjokavicFH.mp4"
+    video_uri = "gs://slow-motion-videos/NDjokovicFH.mp4"
     results = detect_shot_changes(video_uri)
     print_video_shots(results)

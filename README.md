@@ -11,8 +11,16 @@ poetry install
 
 # Set up gcloud config
 gcloud config set account andy.galdi@gmail.com
-gcloud config set project cloudvisionproject-376918
-export GOOGLE_APPLICATION_CREDENTIALS=~/key.json
+gcloud config set project tennis-cv
+export GOOGLE_APPLICATION_CREDENTIALS=~/personal/tennis-cv/key.json
+
+# Need to do just once
+SERVICE_ACCOUNT_NAME="tennis-cv"
+PROJECT_ID=$(gcloud config get-value core/project)
+SERVICE_ACCOUNT="$SERVICE_ACCOUNT_NAME@$PROJECT_ID.iam.gserviceaccount.com"
+gcloud iam service-accounts keys create $GOOGLE_APPLICATION_CREDENTIALS \
+  --iam-account $SERVICE_ACCOUNT
+# Grant the service account the following roles: Service Usage Consumer and Storage Object Viewer
 
 # Run code
 python 2-determine-joints.py # Will do pose estimation on a video and calculate joint angles
